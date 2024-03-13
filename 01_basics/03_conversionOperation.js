@@ -51,7 +51,7 @@ console.log("1" + 2 + 2)// O/P: 122
 
 console.log(true); // O/P: true
 console.log(+true); // O/P: 1
-console.log(true+); // O/P: error
+// console.log(true+); // O/P: error
 console.log(+""); // O/P: 0
 
 let num1, num2, num3
