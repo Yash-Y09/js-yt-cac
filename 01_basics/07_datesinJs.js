@@ -42,6 +42,6 @@ console.log(newDate.getDay());// get Wednesday by number
 console.log(`${newDate.getFullYear()} and the time`) // O/P: 2024 and the time
 
 // to get costomized time
-console.log(newDate.toLocaleDateString('defaut',{
+console.log(newDate.toLocaleDateString('default',{
     weekday: "long",
 })) // O/P: Wednesday // you can get suggestion by ctrl + space 
