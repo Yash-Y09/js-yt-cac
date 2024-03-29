@@ -1,0 +1,84 @@
+JavaScript Execution Context:
+
+how JS run Your file: run in 2 Phase
+
+when you give you code to this JS , first of all it make Global EC
+Browser Execution Context(EC) is different than other Environment EC like node, bun 
+whenever Browser call the Global EC, then it assigns to the variable "this" and it gives Window object as Value
+
+1. Global Execution Context
+2. Function or Functional Execution Context
+3. Eval Execution Context (No need to know, just have Global property)
+
+2 Phases of JS run:
+1. Memory Creation Phase or Creation Phase
+    in this Phase, whatever you declare like variable, function, this phase allocate them memory
+2. Execution Phase
+    Execute the code
+Example:
+
+let val1 = 10
+let val2 = 5
+function addNum(num1, num2){
+    let total = num1 + num2
+    return total
+}
+let result1 = addNum(val1, val2)
+let result2 = addNum(10, 2)
+
+Phase 1:
+Whenever any code runs, it is run by global execution and allocated to the "this".
+
+Phase2:
+Memory Allocation, collect all variables 
+val1 => undefined
+val2 => undefined
+addNum => definition of function 
+Definition of function :
+((num1, num2){
+    let total = num1 + num2
+    return total
+}) 
+result1 => undefined
+result2 => undefined
+
+Phase3:
+Execution Phase
+val1 <= 10
+val2 <= 5
+result1:
+    addNum don't have any to execute
+        result1 have function then it create different executional Context
+            addNum =>____________________________
+                     |  new variable Environment | 
+                     |       +                   |
+                     |  Execution thread         |
+                     |___________________________|
+                    now this do 2 Phase for this
+                    1.Memory Allocation  
+                        val1 => undefined
+                        val2 => undefined
+                        total => undefined
+                    2.Execution Phase
+                        num1 <= 10
+                        num1 <= 5
+                        total <= 15 // total return to the Global execution context
+        It Delete after run
+result1 <= 15
+result2: 
+    same process for this function also or any function
+result2 <= 12
+
+Call Stack:
+
+ |             |
+ |             |
+ |             |
+ |             |
+ |             |
+ |_____________|
+ |__Global_EC__|
+
+ Call Stack have Global EC
+When you have to execute a method then the function or method goes into Call Stack and after Execution it will be removed from Call Stack.
+If a function is nested or calls another function in the function then in the Call Stack LIFO concept, Last In First Out.
