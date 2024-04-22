@@ -18,9 +18,11 @@ console.log(this); //O/P: {} //give blank Object but in Browser refer to the Win
 // Browser Global Object is Window Object, which have many methods 
 
 function chai(){
+
+
     console.log(this);
 }
-
+ 
 // chai() // when call this in function
 // O/P: <ref *1> Object [global] {
 //   global: [Circular *1],
